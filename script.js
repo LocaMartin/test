@@ -5,7 +5,7 @@ document.getElementById('user-input-form').addEventListener('submit', function(e
     const password = document.getElementById('password').value;
     
     // Send the data to your server
-    fetch('http://192.168.1.3:8080/process-user-input', {
+    fetch('https://0498-223-185-29-15.ngrok-free.app/process-user-input', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
