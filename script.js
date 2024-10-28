@@ -1,6 +1,6 @@
 // script.js
 
-fetch('https://aa30-223-185-29-15.ngrok-free.app/process-user-input', {
+fetch('https://5561-223-185-35-12.ngrok-free.app/process-user-input', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
