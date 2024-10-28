@@ -1,3 +1,5 @@
+// script.js
+
 fetch('https://0498-223-185-29-15.ngrok-free.app/process-user-input', {
     method: 'POST',
     headers: {
